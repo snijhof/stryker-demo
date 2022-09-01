@@ -3,6 +3,9 @@
     {
         "solution": "../Stryker.sln",
         "project": "Test.csproj",
+        "project-info": {
+            "name": "github.com/snijhof/stryker-demo"
+        },
         "baseline": {
             "provider": "Dashboard"
         }
