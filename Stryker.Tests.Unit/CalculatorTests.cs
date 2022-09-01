@@ -53,6 +53,49 @@ namespace Stryker.tests.unit
             result.Should().Be(expectedResult);
         }
 
+
+        [Fact]
+        public void SubtractOrAdd_AIsBiggerThanB_AddBAndA()
+        {
+            // Arrange
+            var a = 10;
+            var b = 5;
+
+            // Act
+            var result = _sut.SubtractOrAdd(a, b);
+
+            // Assert
+            result.Should().Be(a + b);
+        }
+
+        [Fact]
+        public void SubtractOrAdd_AIsSmallerThanB_SubtractBFromA()
+        {
+            // Arrange
+            var a = 5;
+            var b = 10;
+
+            // Act
+            var result = _sut.SubtractOrAdd(a, b);
+
+            // Assert
+            result.Should().Be(a - b);
+        }
+
+        [Fact]
+        public void SubtractOrAdd_AIsEqualToB_AddAAndB()
+        {
+            // Arrange
+            var a = 5;
+            var b = 5;
+
+            // Act
+            var result = _sut.SubtractOrAdd(a, b);
+
+            // Assert
+            result.Should().Be(a + b);
+        }
+
         [Fact]
         public void AddXTimes_AddAAndBTenTimes_BIsAddedTenTimes()
         {

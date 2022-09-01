@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'Stryker.sln'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnet tools'
+  inputs:
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'restore'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run stryker on test app'
+  inputs:
+    command: custom
+    custom: 'stryker'
+    # arguments: '--diff'
+    # arguments: '--reporters "[''dashboard'', ''html'']" --threshold-high 90 --threshold-low 75 --threshold-break 60 --diff'
+    workingDirectory: 'Stryker.Tests.Unit'
+
+- task: PublishMutationReport@1
+  inputs:
+    reportPattern: 'Stryker.Tests.Unit/**/mutation-report.html'
+    reportDisplayName: 'Publish Mutation Test Report'
