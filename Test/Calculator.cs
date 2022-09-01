@@ -34,4 +34,19 @@ public class Calculator
 
         return a;
     }
+
+    public int DoSomething(int a, int b)
+    {
+        if (a == 1)
+        {
+            return b;
+        }
+
+        if (b == 0) 
+        {
+            return a;
+        }
+
+        return a + b;
+    }
 }
