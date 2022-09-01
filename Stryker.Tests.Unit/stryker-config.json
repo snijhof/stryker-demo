@@ -1,0 +1,12 @@
+{
+    "stryker-config":
+    {
+        "solution": "../Stryker.sln",
+        "project": "Stryker.csproj",
+        "baseline": {
+            "provider": "AzureFileStorage",
+            "azure-fileshare-url": "",
+            "azure-fileshare-sas": ""
+        }
+    }
+}
