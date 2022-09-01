@@ -2,6 +2,9 @@
     "stryker-config":
     {
         "solution": "../Stryker.sln",
-        "project": "Test.csproj"
+        "project": "Test.csproj",
+        "baseline": {
+            "provider": "Dashboard"
+        }
     }
 }
