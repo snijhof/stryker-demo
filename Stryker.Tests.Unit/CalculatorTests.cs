@@ -1,5 +1,6 @@
 using FluentAssertions;
 using System;
+using Test;
 using Xunit;
 
 namespace Stryker.tests.unit
@@ -44,7 +45,7 @@ namespace Stryker.tests.unit
             // Arrang
             var a = 5;
             var b = 2;
-            var expectedResult = (decimal) a / b;
+            var expectedResult = (decimal)a / b;
 
             // Act
             var result = _sut.Divide(a, b);
