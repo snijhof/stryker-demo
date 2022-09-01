@@ -22,4 +22,14 @@ public class Book
     {
         CurrentPage--;
     }
+
+    public void SetPage(int page)
+    {
+        if (page < 0 || page > this.pages)
+        {
+            return;
+        }
+
+        CurrentPage = page;
+    }
 }
